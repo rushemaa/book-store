@@ -1,9 +1,16 @@
+import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import BookState from './BookState';
+import { remove } from '../redux/books/booksSlice';
 
 export default function Book({
-  category, title, author, progress, chapter,
+  id,
+  category,
+  title,
+  author,
+  progress,
+  chapter,
 }) {
+  const dispatch = useDispatch();
   return (
     <li className="book">
       <div className="left-content">
@@ -11,7 +18,22 @@ export default function Book({
           <h4 className="book-category">{category}</h4>
           <h2 className="book-title">{title}</h2>
           <h6 className="book-author">{author}</h6>
-          <BookState />
+          <div className="state-buttons">
+            <button className="btn-comment" type="button">
+              Comments
+            </button>
+
+            <button
+              onClick={() => dispatch(remove(id))}
+              className="btn-delete"
+              type="button"
+            >
+              Remove
+            </button>
+            <button className="btn-edit" type="button">
+              Edit
+            </button>
+          </div>
         </div>
       </div>
 
@@ -42,6 +64,7 @@ export default function Book({
 }
 
 Book.defaultProps = {
+  id: '',
   category: '',
   title: '',
   author: '',
@@ -50,6 +73,7 @@ Book.defaultProps = {
 };
 
 Book.propTypes = {
+  id: PropTypes.string,
   category: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
