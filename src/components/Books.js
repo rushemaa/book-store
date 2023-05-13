@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Book from './Book';
+import { fetchData } from '../redux/books/booksSlice';
 
 export default function Books() {
   const { bookData } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <ul className="book">
       {bookData.map((element) => (
