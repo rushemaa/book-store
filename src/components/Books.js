@@ -11,7 +11,7 @@ export default function Books() {
   }, [dispatch]);
 
   return (
-    <ul className="book">
+    <ul className="books">
       {bookData.map((element) => (
         <Book
           key={element.item_id}

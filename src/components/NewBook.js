@@ -10,22 +10,22 @@ export default function NewBook() {
   const { bookData } = useSelector((state) => state.books);
 
   return (
-    <section>
+    <section className="form-add">
       <h2 className="form-title">ADD NEW BOOK</h2>
       <form className="add-book">
         <input
           ref={title}
-          className="ititle-input"
+          className="input ititle-input"
           placeholder="Book title"
           required=""
         />
         <input
           ref={author}
-          className="ititle-author"
+          className="input ititle-author"
           placeholder="Author"
           required=""
         />
-        <select ref={category} className="cat-input">
+        <select ref={category} className="input cat-input">
           <option value="Action">Action</option>
           <option value="Science Fiction">Science Fiction</option>
           <option value="Economy">Economy</option>

@@ -23,6 +23,8 @@ export default function Book({
               Comments
             </button>
 
+            <div className="v-line" />
+
             <button
               onClick={() => dispatch(removeBooks(id))}
               className="btn-delete"
@@ -30,6 +32,7 @@ export default function Book({
             >
               Remove
             </button>
+            <div className="v-line" />
             <button className="btn-edit" type="button">
               Edit
             </button>
@@ -39,13 +42,17 @@ export default function Book({
 
       <div className="right-content">
         <div className="circular-progress-container">
-          <div className="circular-progress" />
+          <div className="circular-progress-c">
+            <div className="circular-progress" />
+          </div>
 
           <div className="progress-stat">
             <p className="percent-complete">{progress}</p>
             <p className="completed">Completed</p>
           </div>
         </div>
+
+        <div className="line-2" />
 
         <div className="current-chapter-container">
           <div>
