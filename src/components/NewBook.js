@@ -1,12 +1,13 @@
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { add } from '../redux/books/booksSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBooks } from '../redux/books/booksSlice';
 
 export default function NewBook() {
   const title = useRef();
   const author = useRef();
   const category = useRef();
   const dispatch = useDispatch();
+  const { bookData } = useSelector((state) => state.books);
 
   return (
     <section>
@@ -32,7 +33,9 @@ export default function NewBook() {
         <button
           className="btn-add-book"
           onClick={() => {
+            const itemId = `item${bookData.length + 1}`;
             const newB = {
+              item_id: itemId,
               title: title.current.value,
               author: author.current.value,
               category: category.current.value,
@@ -40,7 +43,7 @@ export default function NewBook() {
             title.current.value = '';
             author.current.value = '';
             category.current.value = 'Action';
-            dispatch(add(newB));
+            dispatch(addBooks(newB));
           }}
           type="button"
         >

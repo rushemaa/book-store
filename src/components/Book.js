@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { remove } from '../redux/books/booksSlice';
+import { removeBooks } from '../redux/books/booksSlice';
 
 export default function Book({
   id,
@@ -24,7 +24,7 @@ export default function Book({
             </button>
 
             <button
-              onClick={() => dispatch(remove(id))}
+              onClick={() => dispatch(removeBooks(id))}
               className="btn-delete"
               type="button"
             >
