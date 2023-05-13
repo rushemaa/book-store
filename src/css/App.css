@@ -170,6 +170,10 @@ main {
   padding: initial;
 }
 
+.state-buttons button:hover {
+  cursor: pointer;
+}
+
 .v-line {
   width: 0.125rem;
   height: 1.5rem;
@@ -373,4 +377,8 @@ main {
   letter-spacing: 0.5px;
   text-align: center;
   color: #fff;
+}
+
+.btn-add-book:hover {
+  cursor: pointer;
 }
